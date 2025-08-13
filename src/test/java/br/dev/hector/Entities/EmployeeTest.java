@@ -17,7 +17,7 @@ public class EmployeeTest {
         new BigDecimal("2000.00"),
         "Operador");
 
-    employee.increaseSalary(new BigDecimal("10"));
+    employee.increaseSalary(new BigDecimal("0.10"));
 
     BigDecimal expected = new BigDecimal("2200.00");
     assertEquals(0, expected.compareTo(employee.getSalary()));

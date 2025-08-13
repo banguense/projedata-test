@@ -39,7 +39,7 @@ public class Principal {
 
     System.out.println("=================3.4===============");
 
-    employees.increaseSalaries(new BigDecimal("10"));
+    employees.increaseSalaries(new BigDecimal("0.10"));
     employees.showEmployees(formatter);
 
     System.out.println("================3.5/3.6================");

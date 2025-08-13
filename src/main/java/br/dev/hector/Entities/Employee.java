@@ -34,8 +34,7 @@ public class Employee extends Person {
   }
 
   public void increaseSalary(BigDecimal percentage) {
-    BigDecimal increase = this.salary.multiply(percentage)
-        .divide(new BigDecimal("100"), 2, RoundingMode.HALF_UP);
+    BigDecimal increase = this.salary.multiply(percentage);
     this.salary = this.salary.add(increase);
   }
 }
