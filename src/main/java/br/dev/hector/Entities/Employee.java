@@ -1,6 +1,7 @@
 package br.dev.hector.Entities;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
@@ -36,5 +37,11 @@ public class Employee extends Person {
         + "Data de nascimento: " + this.getDateOfBirth().format(FORMATTER) + "\n"
         + "Salário: R$ " + DECIMAL_FORMAT.format(this.getSalary()) + "\n"
         + "Função: " + this.getRole() + "\n";
+  }
+
+  public void increaseSalary(BigDecimal percentage) {
+    BigDecimal increase = this.salary.multiply(percentage)
+        .divide(new BigDecimal("100"), 2, RoundingMode.HALF_UP);
+    this.salary = this.salary.add(increase);
   }
 }
