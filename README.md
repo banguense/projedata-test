@@ -19,16 +19,32 @@ Java 21
 
 ## Como Executar o Projeto
 
-Para executar a classe principal, utilize o seguinte comando Maven:
+Para executar a classe principal, utilize o Maven Wrapper.
+
+Primeiro, dê permissão de execução para o script do wrapper.
+
+**No Linux/macOS:**
+```bash
+chmod +x mvnw
+```
+
+**No Windows (usando PowerShell):**
+```powershell
+# Se a execução de scripts estiver restringida, você pode precisar executar este comando:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+```
+O `mvnw.cmd` já deve funcionar no Prompt de Comando (CMD) sem passos adicionais.
+
+Depois de conceder a permissão, execute o projeto com o seguinte comando:
 
 ```bash
-mvn exec:java
+./mvnw compile exec:java
 ```
 
 ## Como Buildar o Projeto
 
 ```bash
-mvn clean package
+./mvnw clean package
 ```
 
 ## Como Executar os Testes
@@ -36,5 +52,5 @@ mvn clean package
 Para rodar os testes unitários, utilize o comando:
 
 ```bash
-mvn test
+./mvnw test
 ```
