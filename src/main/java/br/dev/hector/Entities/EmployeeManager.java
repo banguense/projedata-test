@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Employees {
+public class EmployeeManager {
 
   private List<Employee> employees;
 
-  public Employees(List<Employee> employees) {
+  public EmployeeManager(List<Employee> employees) {
     if (employees == null) {
       throw new IllegalArgumentException("Employees list cannot be null");
     }
