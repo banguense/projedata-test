@@ -1,5 +1,6 @@
 package br.dev.hector.Entities;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Employees {
@@ -32,6 +33,11 @@ public class Employees {
   public void showEmployees() {
     this.employees.forEach(
         employee -> System.out.println(employee.getEmployeeData()));
+  }
+
+  public void increaseSalaries(BigDecimal percentage) {
+    this.employees.forEach(
+        employee -> employee.increaseSalary(percentage));
   }
 
 }

@@ -25,5 +25,11 @@ public class Principal {
 
     employees.removeEmployee("João");
     employees.showEmployees();
+
+    System.out.println("================================");
+
+    employees.increaseSalaries(new BigDecimal("10"));
+    employees.showEmployees();
+
   }
 }
