@@ -1,17 +1,8 @@
 package br.dev.hector.Entities;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 
 public class Employees {
-
-  private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-  private static final Locale LOCALE_BR = Locale.forLanguageTag("pt-BR");
-  private static final DecimalFormatSymbols SYMBOLS = new DecimalFormatSymbols(LOCALE_BR);
-  private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,##0.00", SYMBOLS);
 
   private List<Employee> employees;
 
@@ -40,10 +31,7 @@ public class Employees {
 
   public void showEmployees() {
     this.employees.forEach(
-        employee -> System.out.println(
-            "Nome: " + employee.getName() + "\n"
-                + "Data de nascimento: " + employee.getDateOfBirth().format(FORMATTER) + "\n"
-                + "Salário: R$ " + DECIMAL_FORMAT.format(employee.getSalary()) + "\n"
-                + "Função: " + employee.getRole() + "\n"));
+        employee -> System.out.println(employee.getEmployeeData()));
   }
+
 }
