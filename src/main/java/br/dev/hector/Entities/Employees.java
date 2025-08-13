@@ -2,6 +2,8 @@ package br.dev.hector.Entities;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Employees {
 
@@ -38,6 +40,15 @@ public class Employees {
   public void increaseSalaries(BigDecimal percentage) {
     this.employees.forEach(
         employee -> employee.increaseSalary(percentage));
+  }
+
+  public Map<String, List<Employee>> groupByRole() {
+    return this.employees.stream().collect(Collectors.groupingBy(Employee::getRole));
+  }
+
+  public BigDecimal getAllSalariesSum() {
+    return this.employees.stream().map(Employee::getSalary)
+        .reduce(BigDecimal.ZERO, BigDecimal::add);
   }
 
 }
