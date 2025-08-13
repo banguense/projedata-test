@@ -26,9 +26,7 @@ public class Employee extends Person {
     return role;
   }
 
-  public String getEmployeeData() {
-    CurrencyFormatter formatter = RealFormatter.getInstance();
-
+  public String getEmployeeData(CurrencyFormatter formatter) {
     return "Nome: " + this.getName() + "\n"
         + "Data de nascimento: " + this.getDateOfBirth().format(FORMATTER) + "\n"
         + "Salário: R$ " + formatter.format(this.getSalary()) + "\n"

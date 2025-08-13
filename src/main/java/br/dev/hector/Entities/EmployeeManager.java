@@ -32,9 +32,9 @@ public class EmployeeManager {
     this.employees.removeIf(e -> e.getName().equals(name));
   }
 
-  public void showEmployees() {
+  public void showEmployees(CurrencyFormatter formatter) {
     this.employees.forEach(
-        employee -> System.out.println(employee.getEmployeeData()));
+        employee -> System.out.println(employee.getEmployeeData(formatter)));
   }
 
   public void increaseSalaries(BigDecimal percentage) {

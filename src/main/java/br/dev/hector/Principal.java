@@ -28,17 +28,19 @@ public class Principal {
         new Employee("Laura", LocalDate.of(1994, 7, 8), new BigDecimal("3017.45"), "Gerente"),
         new Employee("Heloísa", LocalDate.of(2003, 5, 24), new BigDecimal("1606.85"), "Eletricista"),
         new Employee("Helena", LocalDate.of(1996, 9, 2), new BigDecimal("2799.93"), "Gerente")));
+
     EmployeeManager employees = new EmployeeManager(listEmployee);
+    CurrencyFormatter formatter = RealFormatter.getInstance();
 
     System.out.println("==================3.3==============");
 
     employees.removeEmployee("João");
-    employees.showEmployees();
+    employees.showEmployees(formatter);
 
     System.out.println("=================3.4===============");
 
     employees.increaseSalaries(new BigDecimal("10"));
-    employees.showEmployees();
+    employees.showEmployees(formatter);
 
     System.out.println("================3.5/3.6================");
 
@@ -47,7 +49,7 @@ public class Principal {
     for (Map.Entry<String, List<Employee>> entry : group.entrySet()) {
       System.out.println(entry.getKey());
       for (Employee employee : entry.getValue()) {
-        System.out.println(employee.getEmployeeData());
+        System.out.println(employee.getEmployeeData(formatter));
       }
       System.out.println("-------------------------");
     }
@@ -60,7 +62,7 @@ public class Principal {
           return month == 10 || month == 12;
         }).collect(Collectors.toList());
 
-    employeesBirthOnOctuberAndDecember.forEach(e -> System.out.println(e.getEmployeeData()));
+    employeesBirthOnOctuberAndDecember.forEach(e -> System.out.println(e.getEmployeeData(formatter)));
 
     System.out.println("================3.9================");
 
@@ -74,11 +76,9 @@ public class Principal {
     System.out.println("================3.10================");
 
     employees.getEmployees().stream().sorted(Comparator.comparing(Employee::getName)).forEach(
-        e -> System.out.println(e.getEmployeeData()));
+        e -> System.out.println(e.getEmployeeData(formatter)));
 
     System.out.println("==================3.11==============");
-
-    CurrencyFormatter formatter = RealFormatter.getInstance();
 
     BigDecimal salariesSum = employees.getAllSalariesSum();
 
